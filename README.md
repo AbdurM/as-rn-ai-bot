@@ -3,6 +3,7 @@
 Easy Plug and Play **Chat Component** which uses **OPEN AI turbo APIs behind the scenes**.
 
 ## Installation
+
 ```sh
 npm install as-rn-ai-chat-turbo
 ```
@@ -10,21 +11,24 @@ npm install as-rn-ai-chat-turbo
 - **Future releases will have an option to choose your gpt model**
 
 
-## Future release
+## Future releases
 
-- This is just a basic version. More updates to come soon related to customisation and more control on your ai model. 
+- **This is just a basic version.** More updates to come soon related to customisation and more control on your ai model. 
 
 ## Example usage
 
 ```sh
 import React from 'react';
-import AIChat from './src/AIChat';
 import { apiKey } from './src/constants';
+import AIChat from 'as-rn-ai-chat-turbo'
+import { SafeAreaView } from 'react-native';
 
 const App = () => {
-  return <AIChat
-    apiToken={apiKey}
-  />
+  return <SafeAreaView style={ {flex: 1} }>
+      <AIChat
+        apiToken={apiKey}
+      />
+    </SafeAreaView>
 };
 
 export default App;

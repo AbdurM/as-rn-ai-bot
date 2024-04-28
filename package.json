@@ -1,6 +1,6 @@
 {
   "name": "as-rn-ai-chat-turbo",
-  "version": "0.0.1",
+  "version": "0.0.2=",
   "description": "Easy Plug and Play chat interface which uses Open AI'sapi behind the scenes. Just needs a token from open ai and that's it. More customisation and features in coming weeks.",
   "main": "index.js",
   "scripts": {
@@ -30,8 +30,5 @@
     "react": "18.2.0",
     "react-native": "0.73.7",
     "react-native-gifted-chat": "^2.4.0"
-  },
-  "dependencies": {
-    "as-rn-ai-chat-turbo": "^0.0.1"
   }
 }
