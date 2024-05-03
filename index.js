@@ -3,7 +3,7 @@ import { SafeAreaView, StyleSheet, } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 import { initAPI, apiCall } from './api';
 
-const AIChat = ({ apiToken }) => {
+const AIChat = ({ apiToken, userName }) => {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
@@ -39,7 +39,7 @@ const AIChat = ({ apiToken }) => {
                 onSend={messages => onSend(messages)}
                 user={{
                     _id: 1,
-                    name: 'User'
+                    name: userName ?? 'User'
                 }}
             />
         </SafeAreaView>

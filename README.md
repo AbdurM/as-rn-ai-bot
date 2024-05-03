@@ -26,7 +26,8 @@ import { SafeAreaView } from 'react-native';
 const App = () => {
   return <SafeAreaView style={ {flex: 1} }>
       <AIChat
-        apiToken={apiKey}
+        apiToken = {apiKey}
+        userName = 'Abdur'
       />
     </SafeAreaView>
 };
