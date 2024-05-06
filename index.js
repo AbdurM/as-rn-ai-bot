@@ -1,19 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView, StyleSheet, } from 'react-native';
-import { GiftedChat } from 'react-native-gifted-chat';
+import { GiftedChat, Bubble } from 'react-native-gifted-chat';
 import { initAPI, apiCall } from './api';
+import colors from './colors';
 
-const AIChat = ({ apiToken, userName }) => {
+const AIChat = ({ apiToken, userName, aiBubbleColor, userBubbleColor }) => {
     const [messages, setMessages] = useState([]);
+    const [isTyping, setIsTyping] = useState(false);
 
     useEffect(() => {
         initAPI(apiToken)
     }, []);
 
+    renderBubble = (props) => {
+        return (
+            <Bubble
+                {...props}
+                wrapperStyle={{
+                    right: {
+                        backgroundColor: userBubbleColor ?? colors.userBubbleDefaultColor
+                    },
+                    left: {
+                        backgroundColor: aiBubbleColor ?? colors.aiBubbleDefaultColor
+                    }
+                }}
+            />
+        )
+    }
+
     const onSend = async (freshMessages = []) => {
         setMessages(previousMessages =>
             GiftedChat.append(previousMessages, freshMessages),
         );
+        setIsTyping(true);
 
         const apiResponse = await apiCall(freshMessages);
 
@@ -30,6 +49,7 @@ const AIChat = ({ apiToken, userName }) => {
         setMessages(previousMessages =>
             GiftedChat.append(previousMessages, aiMessage),
         );
+        setIsTyping(false)
     }
 
     return (
@@ -37,10 +57,12 @@ const AIChat = ({ apiToken, userName }) => {
             <GiftedChat
                 messages={messages}
                 onSend={messages => onSend(messages)}
+                isTyping={isTyping}
                 user={{
                     _id: 1,
                     name: userName ?? 'User'
                 }}
+                renderBubble={renderBubble}
             />
         </SafeAreaView>
     )

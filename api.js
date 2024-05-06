@@ -28,7 +28,6 @@ export const apiCall = async (messages) => {
         return response.data.choices[0].message.content;
 
     } catch (err) {
-        console.log('error ', err)
         return Promise.resolve({
             success: false,
             msg: err.message

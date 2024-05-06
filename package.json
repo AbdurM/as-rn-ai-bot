@@ -1,6 +1,6 @@
 {
   "name": "as-rn-ai-chat-turbo",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "Easy Plug and Play chat interface which uses Open AI'sapi behind the scenes. Just needs a token from open ai and that's it. More customisation and features in coming weeks.",
   "main": "index.js",
   "scripts": {
