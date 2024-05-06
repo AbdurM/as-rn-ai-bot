@@ -20,18 +20,24 @@ npm install as-rn-ai-chat-turbo
 ```sh
 import React from 'react';
 import { apiKey } from './src/constants';
-import AIChat from 'as-rn-ai-chat-turbo'
 import { SafeAreaView } from 'react-native';
+import  AIChat from 'as-rn-ai-chat-turbo'
 
 const App = () => {
   return <SafeAreaView style={ {flex: 1} }>
       <AIChat
-        apiToken = {apiKey}
-        userName = 'Abdur'
+      apiToken={apiKey}
+      userBubbleColor='orange'
+      aiBubbleColor='green'
       />
     </SafeAreaView>
 };
 
 export default App;
 ```
+## Props
 
+- **`apiToken`** _(String)_ - open AI api key for gpt-3.5-turbo from [Open AI api](https://platform.openai.com/api-keys). This is very important as it won't work without it.
+- **`userBubbleColor`** _(String)_ - set the user bubble color. Has a default color of blue
+- **`aiBubbleColor`** _(String)_ - set the user bubble color. Has a default color of light grey
+- **`userName`** _(String)_ - set the user name
