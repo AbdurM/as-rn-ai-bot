@@ -16,7 +16,7 @@ const dalleEndpoint = 'https://api.openai.com/v1/images/generations'
 export const apiCall = async (messages) => {
     try {
         const response = await client.post(chatGptEndPoint, {
-            "model": "gpt-3.5-turbo",
+            "model": "gpt-4o",
             "messages": [
                 {
                     "role": "user",
